@@ -1,0 +1,10 @@
+services:
+ web:
+  build: ./api
+  image: 
+  ports:
+  - "3000:3000"
+volumes:
+  - ./api/src/usr/app/src
+depends-on: 
+  - pg
