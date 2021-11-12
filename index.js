@@ -24,12 +24,22 @@ function checkPassword(str) {
     let format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
     return str && typeof str == "string" && str.length <= 20 && format.test(str) ? str : false;
 }
-
+/**
+ * 
+ * @param {String} username 
+ * @param {String} password 
+ * @returns returns the username and password
+ */
 function checkLogin(username, password) {
     return username, password;
 }
+/**
+ * 
+ * @param {Boolean} highscore 
+ * @returns the highscore of a player
+ */
+function checkHighscore(highscore) {
+    return highscore && typeof highscore != "string" ? highscore : false;
+}
 
-module.exports = { checkWordLenght };
-module.exports = { checkUserName };
-module.exports = { checkPassword };
-module.exports = { checkLogin };
+module.exports = { checkWordLenght, checkUserName, checkPassword, checkLogin, checkHighscore };
