@@ -13,7 +13,7 @@ services:
   store:
     build:
     ports: 
-     - "2506:2506"
+     - "3306:3306"
     environment:
       POSTGRES_USER:
       POSTGRES_PASSWORD:
