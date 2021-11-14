@@ -10,12 +10,19 @@ const knex = require('knex')({
     }
 });
 
+knex.schema.createTable('users', function (table) {
+    table.increments();
+    table.string('username');
+    table.string('password');
+    table.timestamps();
+});
 
 knex.schema.hasTable('users').then(function (exists) {
     if (!exists) {
         return knex.schema.createTable('users', function (t) {
             t.increments('id').primary();
-            t.string('first_name', 100);
+            t.string('username', 100);
+            t.string('password', 100);
         });
     }
 });
