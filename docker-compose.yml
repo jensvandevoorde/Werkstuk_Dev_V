@@ -1,10 +1,20 @@
 services:
- web:
+ api:
   build: ./api
-  image: 
   ports:
   - "3000:3000"
-volumes:
-  - ./api/src/usr/app/src
-depends-on: 
-  - pg
+  volumes:
+  environment:
+    POSTGRES_USER:
+    POSTGRES_PASSWORD:
+    POSTGRES_DB:
+    POSTGRES_HOST: store
+
+  store:
+    build:
+    ports: 
+     - "3306:3306"
+    environment:
+      POSTGRES_USER:
+      POSTGRES_PASSWORD:
+      POSTGRES_DB:
