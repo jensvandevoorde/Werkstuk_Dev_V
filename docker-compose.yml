@@ -1,19 +1,18 @@
 services:
- api:
-  build: ./api
-  ports:
-  - "3000:3000"
-  volumes:
-  environment:
-    POSTGRES_USER:
-    POSTGRES_PASSWORD:
-    POSTGRES_DB:
-    POSTGRES_HOST: store
+  api:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      POSTGRES_USER:
+      POSTGRES_PASSWORD:
+      POSTGRES_DB:
+      POSTGRES_HOST: store
 
   store:
-    build:
+    image: "postgres:latest"
     ports: 
-     - "3306:3306"
+      - "5432:5432"
     environment:
       POSTGRES_USER:
       POSTGRES_PASSWORD:
