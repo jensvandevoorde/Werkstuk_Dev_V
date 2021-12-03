@@ -9,7 +9,7 @@ const player = {
  */
 server.listen(PORT, () => {
     console.log(`server is listening at port ${PORT}`);
-});
+}); 
 
 /**
  * gets info of a player
