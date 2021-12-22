@@ -14,7 +14,7 @@ const pg = require("knex")({
         port : 5432,
         user : process.env.POSTGRES_USER ? process.env.POSTGRES_USER : "tester",
         password : process.env.POSTGRES_PASSWORD ? process.env.POSTGRES_PASSWORD : "test",
-        database : process.env.POSTGRES_DATABASE ? process.env.POSTGRES_DATABASE : "players"
+        database : process.env.POSTGRES_DB ? process.env.POSTGRES_DB : "players"
     }
 });
 
