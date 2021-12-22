@@ -5,11 +5,11 @@ services:
     depends_on:
       store:
         condition: service_healthy
-  
+
   store:
     image: "postgres:latest"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      test: ["CMD-SHELL", "pg_isready -U postgres, -d $POSTGRES_DATABASE "]
       interval: 5s
       timeout: 5s
       retries: 5

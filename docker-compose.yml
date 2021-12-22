@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_USER:
       POSTGRES_PASSWORD:
-      POSTGRES_DB:
+      POSTGRES_DATABASE:
       POSTGRES_HOST: store
 
   store:
@@ -16,4 +16,9 @@ services:
     environment:
       POSTGRES_USER:
       POSTGRES_PASSWORD:
-      POSTGRES_DB:
+      POSTGRES_DATABASE:
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
