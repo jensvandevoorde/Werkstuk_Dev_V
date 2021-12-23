@@ -1,5 +1,5 @@
 const { test, expect } = require("@jest/globals");
-const { checkWordLenght, checkUserName, checkPassword, checkLogin, checkHighscore } = require("./../index");
+const { checkWordLenght, checkUserName, checkPassword, checkLogin, checkGender } = require("./../index");
 
 
 test("checking the lenght of filled in words", () => {
@@ -25,7 +25,6 @@ test("check if inlog username and password are correct", () => {
     expect(checkLogin()).toBeFalsy();
 });
 
-test("check if highscore is usable", () => {
-    expect(checkHighscore()).toBeFalsy();
-    expect(checkHighscore("dfhjopfuofhjp")).toBeFalsy();
+test("check if player is female or male", ()=>{
+    expect(checkGender()).toBeFalsy();
 })

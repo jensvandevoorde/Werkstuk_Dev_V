@@ -8,6 +8,11 @@ services:
       POSTGRES_PASSWORD:
       POSTGRES_DB:
       POSTGRES_HOST: store
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   store:
     image: "postgres:latest"
@@ -17,3 +22,8 @@ services:
       POSTGRES_USER:
       POSTGRES_PASSWORD:
       POSTGRES_DB:
+    depends_on:
+      api:
+        condition: service_healthy
+
+   
