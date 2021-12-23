@@ -47,11 +47,11 @@ function checkLogin(username, password) {
 }
 /**
  * 
- * @param {Boolean} highscore 
- * @returns the highscore of a player
+ * @param {String} gender 
+ * @returns the gender of the player
  */
-function checkHighscore(highscore) {
-    return highscore && typeof highscore != "string" ? highscore : false;
+function checkGender(gender){
+    return gender && typeof gender == "string" && gender == "Female" || gender == "Male" ? gender : false;
 }
 
-module.exports = { checkWordLenght, checkUserName, checkPassword, checkLogin, checkHighscore };
+module.exports = { checkWordLenght, checkUserName, checkPassword, checkLogin, checkGender};

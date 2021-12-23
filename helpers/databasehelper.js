@@ -9,6 +9,15 @@ async function createTables(pg){
             });
         }
     });
+    pg.schema.hasTable("genders").then(function(exists){
+        if(!exists){
+            return pg.schema.createTable("genders", function(t){
+                t.increments("id").primary();
+                t.uuid("uuid");
+                t.string("gender", 100);
+            });
+        }
+    });
 }
 
 function checkBodyFields(body, fields) {
